@@ -1,0 +1,32 @@
+{
+  "name": "senai_sd",
+  "version": "0.0.1",
+  "description": "Sistema desenvolvido para a prova prática de Analista de Qualidade de Software Junior para o Senai Solucoes Digitais do Estado de Santa Catarina",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SENAI-SD/QA-JR-00723-2023-013.475.042-06.git"
+  },
+  "keywords": [
+    "Sistema",
+    "Web"
+  ],
+  "author": "Patrick J. Macedo Viana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SENAI-SD/QA-JR-00723-2023-013.475.042-06/issues"
+  },
+  "homepage": "https://github.com/SENAI-SD/QA-JR-00723-2023-013.475.042-06#readme",
+  "dependencies": {
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "morgan": "^1.10.0",
+    "pg": "^8.10.0"
+  }
+}
