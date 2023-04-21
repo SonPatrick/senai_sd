@@ -34,14 +34,6 @@ app.listen(port, () => {
 //Definindo a rota principal e apontando o gerenciador de rotas da API
 app.use("/", route);
 
-//Rota de verificacao que exibe o status da aplicacao
-app
-  .get("/get", (req, res) => res.json({ status: 1, message: "GET: O serviço está funcionando normalmente" }))
-  .post("/post", (req, res) => res.json({ status: 1, message: "POST: O servriço está funcionando normalmente" }))
-  .put("/put", (req, res) => res.json({ status: 1, message: "PUT: O serviço está funcionando normalmente" }))
-  .patch("/patch", (req, res) => res.json({ status: 1, message: "PATCH: O serviço está funcionando normalmente" }))
-  .delete("/delete", (req, res) => res.json({ status: 1, message: "DELETE: O serviço está funcionando normalmente" }));
-
 //Manipulacao de erros
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

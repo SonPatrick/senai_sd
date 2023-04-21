@@ -1,4 +1,4 @@
-function buscarPorId(id){
+function buscarTarefaPorId(id){
     return `SELECT t.task_user_id, t.task_id, u.user_fullname, t.task_title, t.task_description, p.priority_description, tp.type_description, s.status_description, t.created_at
     FROM tasks t
         inner join users u ON u.user_id = t.task_user_id
@@ -9,4 +9,8 @@ function buscarPorId(id){
     ORDER BY t.created_at ASC`
 };
 
-module.exports = {buscarPorId}
+function listarTarefasPaginadas(page = 0){
+    let offset = (page > 1) ? (page - 1) * 10 : 0;
+    return `SELECT * FROM tasks LIMIT 10 OFFSET ${offset}`
+};
+module.exports = {buscarTarefaPorId, listarTarefasPaginadas}

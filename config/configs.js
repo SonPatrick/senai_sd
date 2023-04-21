@@ -2,10 +2,10 @@ require("dotenv").config();
 
 const database = {
   producao: {
-    host: process.env.DB_HOST, //"localhost",
-    user: process.env.DB_USER, //"root",
-    pass: process.env.DB_PASS, //"",
-    base: process.env.DB_NAME, //"iboardjs",
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    pass: process.env.DB_PASS,
+    base: process.env.DB_BASE,
     port: process.env.DB_PORT
   },
 
