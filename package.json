@@ -4,6 +4,7 @@
   "description": "Sistema desenvolvido para a prova prática de Analista de Qualidade de Software Junior para o Senai Solucoes Digitais do Estado de Santa Catarina",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "express": "^4.18.2",
     "helmet": "^6.1.5",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
     "pg": "^8.10.0"
   }
 }
