@@ -1,0 +1,42 @@
+const database = require("../database/db_connection");
+const queries = require("../database/task_queries");
+const helper = require("../utils/helpers");
+
+async function listarTarefasPaginadas(page) {
+  const result = await database.consultar(queries.listarTarefasPaginadas(page));
+  let status = 0;
+  let message = "Nenhuma tarefa encontrada.";
+  const data = helper.emptyOrRows(result);
+
+  if (data) {
+    status = 1;
+    message = `resultados encontrados`;
+  }
+  return { status, message, data };
+}
+
+async function cadastrarTarefa(id, model) {
+  const result = await database.consultar(queries.cadastrarTarefa(id, model));
+  let status = 0;
+  let message = "Falha no cadastro da tarefa.";
+  const data = helper.emptyOrRows(result);
+
+  if (data) {
+    status = 1;
+    message = `Tarefa cadastrada com sucesso.`;
+  }
+  return { status, message };
+}
+
+async function atualizarTarefa(id, model) {
+  const result = await database.consultar(queries.atualizarTarefa(id, model));
+  let status = 0;
+  let message = "Falha na atualização da tarefa.";
+
+  if (data) {
+    status = 1;
+    message = `Tarefa Atualizada com sucesso.`;
+  }
+  return { status, message };
+}
+module.exports = { listarTarefasPaginadas, cadastrarTarefa, atualizarTarefa };

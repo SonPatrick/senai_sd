@@ -1,4 +1,5 @@
-const controller = require("../controllers/controller");
+const task_ctrl = require("../controllers/task_controller");
+const user_ctrl = require("../controllers/user_controller");
 const express = require("express");
 const router = express.Router();
 
@@ -12,17 +13,17 @@ router
   .get("/listar/tarefas/:page", async function (req, res, next) {
     try {
       res.status(200);
-      res.send(await controller.listarTarefasPaginadas(req.params.page));
+      res.send(await task_ctrl.listarTarefasPaginadas(req.params.page));
     } catch (err) {
       res.status(404);
       console.error(`Erro ao criar a tarefa.`, err.message);
       next(err);
     }
   })
-  .post("/criar/tarefa", async function (req, res, next) {
+  .post("/criar/tarefa/:id", async function (req, res, next) {
     try {
       res.status(200);
-      res.json({ post: "criar tarefas" });
+      res.send(await task_ctrl.cadastrarTarefa(req.params.id, req.body));
     } catch (err) {
       res.status(404);
       console.error(`Erro ao listar tarefas.`, err.message);
@@ -32,7 +33,7 @@ router
   .put("/atualizar/tarefa", async function (req, res, next) {
     try {
       res.status(200);
-      res.json({ put: "atualizar tarefa" });
+      res.json(await task_ctrl.atualizarTarefa(req.params.id, req.body));
     } catch (err) {
       res.status(404);
       console.error(`Erro ao atualizar tarefa.`, err.message);
@@ -52,7 +53,7 @@ router
   .post("/login/usuario", async function (req, res, next) {
     try {
       res.status(200);
-      res.json({ post: "Login usuário" });
+      res.send(await user_ctrl.loginUsuario(req.body));
     } catch (err) {
       res.status(404);
       console.error(`Erro ao logar.`, err.message);
