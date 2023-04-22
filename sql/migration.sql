@@ -20,10 +20,6 @@ CREATE TABLE IF NOT EXISTS users(
     created_at DATE DEFAULT CURRENT_DATE,
     updated_at TIMESTAMP DEFAULT current_timestamp
 );
--- Insere o usuário FIESC NA BASE
-INSERT INTO users (user_fullname, user_email, user_pass) VALUES ('FIESC', 'root@fiesc.com', 'fiesc');
-
-INSERT INTO users (user_fullname, user_email, user_pass) VALUES ('SENAI', 'senai@fiesc.com', 'senai');
 
 -- Cria a tabela de tipos de tarefas
 CREATE TABLE IF NOT EXISTS types(
@@ -33,10 +29,6 @@ CREATE TABLE IF NOT EXISTS types(
     updated_at TIMESTAMP DEFAULT current_timestamp
 );
 
--- Insere tipos de chamados usados
-INSERT INTO types (type_description)
-VALUES('Incidente'), ('Solicitação de Serviço'), ('Melhorias'), ('Projetos');
-
 -- Cria a tabela de prioridades
 CREATE TABLE IF NOT EXISTS priorities(
 	priority_id SERIAL PRIMARY KEY,
@@ -44,9 +36,6 @@ CREATE TABLE IF NOT EXISTS priorities(
   created_at DATE DEFAULT CURRENT_DATE
 );
 
--- Insere os tipos de prioridades usados
-INSERT INTO priorities (priority_description)
-VALUES('Alta'), ('Média'), ('Baixa'), ('Sem Prioridade');
 
 -- Cria a tabela de status
 CREATE TABLE IF NOT EXISTS status(
@@ -54,10 +43,6 @@ CREATE TABLE IF NOT EXISTS status(
   status_description VARCHAR(255) NOT NULL UNIQUE, 
   created_at DATE DEFAULT CURRENT_DATE
 );
-
--- Insere os tipos de status usados
-INSERT INTO status(status_description)
-VALUES('Concluída'), ('Fechada'), ('Aberta');
 
 -- Cria a tabela de comentários no sistema
 CREATE TABLE IF NOT EXISTS tasks_comments(
