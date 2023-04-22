@@ -19,6 +19,7 @@ function listarTarefasPaginadas(page = 0){
         inner join priorities p ON p.priority_id = t.task_id
         inner join status s ON s.status_id = t.task_status_id
         inner join types tp ON tp.type_id = t.task_type_id
+    WHERE t.task_status_id !=2
     ORDER BY t.created_at ASC 
     LIMIT 10 OFFSET ${offset}`
 };
@@ -33,9 +34,9 @@ function atualizarTarefa(id_task, model){
             SET task_user_id = ${model.task_user_id}, 
                 task_title = '${model.task_title}', 
                 task_description = '${model.task_description}', 
-                task_type_id =  ${model.task_type_id}, 
-                task_priority_id =${model.task_priority_id}, 
-                task_status_id =${model.task_status_id}
+                task_type_id = ${model.task_type_id}, 
+                task_priority_id = ${model.task_priority_id}, 
+                task_status_id = ${model.task_status_id}
             WHERE task_id = ${id_task};`
 };
 
