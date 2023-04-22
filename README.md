@@ -162,7 +162,15 @@ Com esses dados você pode entrar no sistema para acessar as funcionalidades imp
 ## Dos recursos não implementados e outras observações
 Alguns dos recursos e requisitos solicitados não foram implementados dado o breve tempo para a entrega dos mesmos. Entretanto buscou-se entregar a aplicação com os requisitos funcionais e com a interface de usuário agradável.</br></br>
 
-Com um prazo de mais um dia ou dois, o sistema estaria entregue com os requisitos funcionais e nõ funcionais, além da interface mais bem trabalhada, com mais usabilidade.
+Com um prazo de mais um dia ou dois, o sistema estaria entregue com os requisitos funcionais e não funcionais, além da interface mais bem trabalhada, com mais usabilidade.
+
+Os requisitos não implementados na interface ou que estão incompletos foram:
+  * Paginação na página inicial das tarefas
+  * Criação de novo usuário
+  * Criação de tarefas
+  * Assumir tarefas
+  * Atualizar tarefas
+  * Tela de detalhes de tarefas
 
 ### Implementações futuras
 >Exibição de progresso das requisições na interface de usuário através de `shimmer`ou `progressbar`;
@@ -182,7 +190,18 @@ Dado o prazo de entrega do sistema, não foram realizados testes com usuários, 
 ![](images/login.png)
 
 ### Lista de tarefas (RF2)
+
+
 ![](images/tarefas.png)
+
+### Adicionar de tarefas (RF3) [INCOMPLETA]
+
+![](images/newtask.png)
+
+### Adicionar providência (RF4) [INCOMPLETA]
+
+
+![](images/newtask.png)
 
 
 ## Agradecimentos
