@@ -3,7 +3,8 @@
  * Date: 20/04/2023
  */
 const timeout = require('connect-timeout');
-var cookieParser = require('cookie-parser');
+let cookieParser = require('cookie-parser');
+const migration = require('./migration');
 
 const route_options = require("./routes/routes_options");
 const route = require("./routes/routes");
@@ -17,6 +18,9 @@ const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
 const app = express();
+
+//Iniciando a criação/migração do banco de dados
+migration.initMigration();
 
 //Definindo o comportamento da API assim como seus componentes
 app
