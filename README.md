@@ -147,19 +147,94 @@ Para entrar no sistema, é criado um usuário padrão no processo de migração 
     Login: senai@fiesc.com
     Senha: senai
 
-Com esses dados você pode entrar no sistema para acessar as funcionalidades implementadas, que são
+Com esses dados você pode entrar no sistema para acessar as funcionalidades implementadas na API, que são
 
     [X] Login de usuário (RF1)
     [X] Exibição das tarefas cadastradas (RF2)
-    [ ] Criação de tarefas (RF3)
-    [ ] Transferẽncia de tarefas
-    [ ] Atualização de tarefas
+    [X] Criação de tarefas (RF3)
 
+Você pode testar nos seguintes endpoints:
+### Listar Tarefas
+**Endpoint:**  http://localhost:5000/api/listar/tarefas/:page</br>
+**Método:** GET
+**Response:**
+  
+    {
+    "status": 1,
+    "message": "resultados encontrados",
+    "data": [{
+        "task_user_id": 1,
+        "task_id": 18,
+        "user_fullname": "SENAI",
+        "task_title": "Construir",
+        "task_description": "Construir o sistema web para ",
+        "priority_description": "Média",
+        "type_description": "Solicitação de Serviço",
+        "status_description": "Fechada",
+        "created_at": "2023-04-21T03:00:00.000Z"
+      }]
+    }
 
-## Telas da aplicação
+### Listar Tipos de Tarefas
+**Endpoint:**  http://localhost:5000/api/listar/tipos</br>
+**Método:** GET
+**Response:**
+  
+    {
+      "data": [
+        {
+          "type_id": 1,
+          "type_description": "Incidente"
+        },
+        {
+          "type_id": 2,
+          "type_description": "Solicitação de Serviço"
+        },
+        {
+          "type_id": 3,
+          "type_description": "Melhorias"
+        },
+        {
+          "type_id": 4,
+          "type_description": "Projetos"
+        }]
+    }
 
+### Listar Tipos de Tarefas
+**Endpoint:**  http://localhost:5000/api/listar/tipos</br>
+**Método:** POST
+**Body**: 
 
-## Dos recursos não implementados e outras observações
+    {
+      "task_title": "Nova Tarefa", 
+      "task_description":"Tarefa nova na parada testar o cadastro de tabelas", 
+      "task_type_id":1,
+      "task_priority_id": 2, 
+      "task_status_id":3
+    }
+**Response:**
+  
+    {
+      "data": [
+        {
+          "type_id": 1,
+          "type_description": "Incidente"
+        },
+        {
+          "type_id": 2,
+          "type_description": "Solicitação de Serviço"
+        },
+        {
+          "type_id": 3,
+          "type_description": "Melhorias"
+        },
+        {
+          "type_id": 4,
+          "type_description": "Projetos"
+        }]
+    }
+## Telas da aplicação</br>
+### Dos recursos não implementados e outras observações
 Alguns dos recursos e requisitos solicitados não foram implementados dado o breve tempo para a entrega dos mesmos. Entretanto buscou-se entregar a aplicação com os requisitos funcionais e com a interface de usuário agradável.</br></br>
 
 Com um prazo de mais um dia ou dois, o sistema estaria entregue com os requisitos funcionais e não funcionais, além da interface mais bem trabalhada, com mais usabilidade.
@@ -206,5 +281,5 @@ Dado o prazo de entrega do sistema, não foram realizados testes com usuários, 
 
 ## Agradecimentos
 Agradeço primeiramente a Deus pela sabedoria, pelo ânimo e pela graça de chegar até aqui, agradeço à minha namorada e minha sogra por garantir o meu alimento e me encorajar a continuar apesar das dificuldades enquanto desenvolvia esse sistema, agradeço aos meus amigos pelo ânimo e à equipe FIESC por ter me permitido chegar nesta etapa.</br></br>
-O sentimento é de **gratidão**.</br>
+O sentimento é de **gratidão** pelo aprendizado.</br>
 Um grande abraço a todos.
