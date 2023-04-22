@@ -108,6 +108,10 @@ A Aplicação Web foi construída usando `Javascript` com o framework `Node.js` 
 
 ## Para testar a aplicação
 
+A aplicação está hospedada na internet, bem [aqui](https://senaisd-production.up.railway.app/#/), porém na versão mobile. Como mostrado na imagem abaixo:
+
+![](images/mobile.png)
+
 Você precisa ter instalado o `Node.js v18.9.0` ou superior e o `Postgres` em sua máquina.</br></br>
 As variáveis de ambiente estão no arquivo `.env` na raíz do projeto e pode ser alterada de acordo com o host, usuário, nome do banco de dados, a senha e a porta.
 
