@@ -5,4 +5,10 @@ function loginUsuario(model){
     AND user_pass = '${model.pass}';`
 };
 
-module.exports = {loginUsuario}
+function criarUsuario(model){
+    return `INSERT INTO users (user_fullname, user_email, user_pass)
+    VALUES('${model.fullname}', '${model.email}', '${model.pass}');`
+};
+
+
+module.exports = {loginUsuario, criarUsuario}

@@ -16,4 +16,16 @@ async function loginUsuario(model) {
   return { status, message, data };
 }
 
-module.exports = { loginUsuario};
+async function criarUsuario(model) {
+  const result = await database.consultar(queries.criarUsuario(model));
+  let status = 0;
+  let message = "Falha no cadastro do usuário.";
+  const data = helper.emptyOrRows(result);
+
+  if (data) {
+    status = 1;
+    message = `Usuário cadastrado com sucesso.`;
+  }
+  return { status, message };
+}
+module.exports = { loginUsuario, criarUsuario};

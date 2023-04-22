@@ -6,7 +6,7 @@ router
   .post("/criar/usuario", async function (req, res, next) {
     try {
       res.status(200);
-      res.json({ post: "criar usuário" });
+      res.json(await user_ctrl.criarUsuario(req.body));
     } catch (err) {
       res.status(404);
       console.error(`Erro ao criar usuário.`, err.message);
