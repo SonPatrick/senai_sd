@@ -28,12 +28,12 @@ async function cadastrarTarefa(id, model) {
   return { status, message };
 }
 
-async function atualizarTarefa(id, model) {
-  const result = await database.consultar(queries.atualizarTarefa(id, model));
+async function atualizarTarefa(id_task, model) {
+  const result = await database.consultar(queries.atualizarTarefa(id_task, model));
   let status = 0;
   let message = "Falha na atualização da tarefa.";
 
-  if (data) {
+  if (result) {
     status = 1;
     message = `Tarefa Atualizada com sucesso.`;
   }

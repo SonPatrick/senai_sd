@@ -30,10 +30,10 @@ router
       next(err);
     }
   })
-  .put("/atualizar/tarefa", async function (req, res, next) {
+  .put("/atualizar/tarefa/:id_task", async function (req, res, next) {
     try {
       res.status(200);
-      res.json(await task_ctrl.atualizarTarefa(req.params.id, req.body));
+      res.json(await task_ctrl.atualizarTarefa(req.params.id_task, req.body));
     } catch (err) {
       res.status(404);
       console.error(`Erro ao atualizar tarefa.`, err.message);

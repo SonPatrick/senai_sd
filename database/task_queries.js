@@ -28,15 +28,15 @@ function cadastrarTarefa(id, model){
     VALUES (${id}, '${model.task_title}', '${model.task_description}', ${model.task_type_id}, ${model.task_priority_id}, ${model.task_status_id});`
 };
 
-function atualizarTarefa(id, model){
+function atualizarTarefa(id_task, model){
     return `UPDATE tasks 
-            SET task_user_id = ${id}, 
+            SET task_user_id = ${model.task_user_id}, 
                 task_title = '${model.task_title}', 
                 task_description = '${model.task_description}', 
                 task_type_id =  ${model.task_type_id}, 
                 task_priority_id =${model.task_priority_id}, 
                 task_status_id =${model.task_status_id}
-            WHERE task_id = ${model.task_id};`
+            WHERE task_id = ${id_task};`
 };
 
 module.exports = {buscarTarefaPorId, listarTarefasPaginadas, cadastrarTarefa, atualizarTarefa}
