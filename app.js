@@ -7,7 +7,8 @@ let cookieParser = require('cookie-parser');
 const migration = require('./migration');
 
 const route_options = require("./routes/routes_options");
-const route = require("./routes/routes");
+const route_tasks = require("./routes/routes_tasks");
+const route_user = require("./routes/routes_user");
 
 const port = process.env.PORT || 5000;
 const express = require("express");
@@ -46,7 +47,8 @@ app.listen(port, () => {
 
 //Definindo a rota principal e apontando o gerenciador de rotas da API
 app.use("/api", route_options);
-app.use("/api", route);
+app.use("/api", route_tasks);
+app.use("/api", route_user);
 
 //Manipulacao de erros
 app.use((err, req, res, next) => {
