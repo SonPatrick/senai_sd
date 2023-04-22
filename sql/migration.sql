@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS tasks(
 -- Cria a tabela de usuários
 CREATE TABLE IF NOT EXISTS users(
     user_id SERIAL PRIMARY KEY,
-    user_fullname VARCHAR(255) NOT NULL,
-    user_email VARCHAR(255) NOT NULL,
+    user_fullname VARCHAR(255) NOT NULL UNIQUE,
+    user_email VARCHAR(255) NOT NULL UNIQUE,
     user_pass VARCHAR(255) NOT NULL,
     created_at DATE DEFAULT CURRENT_DATE,
     updated_at TIMESTAMP DEFAULT current_timestamp
@@ -28,7 +28,7 @@ INSERT INTO users (user_fullname, user_email, user_pass) VALUES ('SENAI', 'senai
 -- Cria a tabela de tipos de tarefas
 CREATE TABLE IF NOT EXISTS types(
     type_id SERIAL PRIMARY KEY,
-    type_description VARCHAR(255) NOT NULL, 
+    type_description VARCHAR(255) NOT NULL UNIQUE, 
     created_at DATE DEFAULT CURRENT_DATE,
     updated_at TIMESTAMP DEFAULT current_timestamp
 );
@@ -40,7 +40,7 @@ VALUES('Incidente'), ('Solicitação de Serviço'), ('Melhorias'), ('Projetos');
 -- Cria a tabela de prioridades
 CREATE TABLE IF NOT EXISTS priorities(
 	priority_id SERIAL PRIMARY KEY,
-  priority_description VARCHAR(255) NOT NULL, 
+  priority_description VARCHAR(255) NOT NULL UNIQUE, 
   created_at DATE DEFAULT CURRENT_DATE
 );
 
@@ -51,7 +51,7 @@ VALUES('Alta'), ('Média'), ('Baixa'), ('Sem Prioridade');
 -- Cria a tabela de status
 CREATE TABLE IF NOT EXISTS status(
 	status_id SERIAL PRIMARY KEY,
-  status_description VARCHAR(255) NOT NULL, 
+  status_description VARCHAR(255) NOT NULL UNIQUE, 
   created_at DATE DEFAULT CURRENT_DATE
 );
 
