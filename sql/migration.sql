@@ -20,6 +20,10 @@ CREATE TABLE IF NOT EXISTS users(
     created_at DATE DEFAULT CURRENT_DATE,
     updated_at TIMESTAMP DEFAULT current_timestamp
 );
+-- Insere o usuário FIESC NA BASE
+INSERT INTO users (user_fullname, user_email, user_pass) VALUES ('FIESC', 'root@fiesc.com', 'fiesc');
+
+INSERT INTO users (user_fullname, user_email, user_pass) VALUES ('SENAI', 'senai@fiesc.com', 'senai');
 
 -- Cria a tabela de tipos de tarefas
 CREATE TABLE IF NOT EXISTS types(
