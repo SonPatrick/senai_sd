@@ -166,10 +166,11 @@ Com esses dados você pode entrar no sistema para acessar as funcionalidades imp
 
     [X] Login de usuário (RF1)
     [X] Exibição das tarefas cadastradas (RF2)
-
+---
 ## **API da aplicação**
-Você pode testar nos seguintes endpoints:
-### Listar Tarefas
+Você pode testar nos seguintes endpoints:</br></br>
+
+### **Listar Tarefas com paginação**
 **Endpoint:**  http://localhost:5000/api/listar/tarefas/:page</br>
 **Parametro:**  [:page] número da página para exibir os resultados</br>
 **Método:** GET</br>
@@ -191,9 +192,12 @@ Você pode testar nos seguintes endpoints:
       }]
     }
 
-### Listar Tipos de Tarefas
+</br>
+
+
+### **Listar Tipos de Tarefas**
 **Endpoint:**  http://localhost:5000/api/listar/tipos</br>
-**Método:** GET
+**Método:** GET</br>
 **Response:**
   
     {
@@ -215,6 +219,156 @@ Você pode testar nos seguintes endpoints:
           "type_description": "Projetos"
         }]
     }
+
+</br>
+
+
+### **Listar Status de Tarefas**
+**Endpoint:**  http://localhost:5000/api/listar/tipos</br>
+**Método:** GET</br>
+**Response:**
+  
+    {
+      "data": [
+        {
+          "status_id": 1,
+          "status_description": "Concluída"
+        },
+        {
+          "status_id": 2,
+          "status_description": "Fechada"
+        },
+        {
+          "status_id": 3,
+          "status_description": "Aberta"
+        }
+      ]
+    }
+
+</br>
+
+
+### **Listar Prioridade de Tarefas**
+**Endpoint:**  http://localhost:5000/api/listar/prioridades</br>
+**Método:** GET</br>
+**Response:**
+  
+    {
+	"data": [
+		{
+			"priority_id": 1,
+			"priority_description": "Alta"
+		},
+		{
+			"priority_id": 2,
+			"priority_description": "Média"
+		},
+		{
+			"priority_id": 3,
+			"priority_description": "Baixa"
+		},
+		{
+			"priority_id": 4,
+			"priority_description": "Sem Prioridade"
+		}
+	]
+}
+
+</br>
+
+
+### **Criar nova tarefa**
+**Endpoint:**  http://localhost:5000/api/criar/tarefa/id_user</br>
+**Método:** POST</br>
+**Body:**
+
+    {
+      "task_title": "Nova Tarefa", 
+      "task_description":"Tarefa nova para testar o cadastro de tabelas", 
+      "task_type_id":1,
+      "task_priority_id": 2, 
+      "task_status_id":3
+    }
+
+**Response:**
+  
+    {
+      "status": 1,
+      "message": "Tarefa cadastrada com sucesso."
+    }
+
+</br>
+
+
+### **Atualizar tarefa**
+**Endpoint:**  http://localhost:5000/api/atualizar/tarefa/id_task</br>
+**Método:** PUT</br>
+**Body:**
+
+    {
+      "task_user_id": 2,
+      "task_title": "Loren Ipsum", 
+      "task_description": "Lorem ipsum dolor sit amet.", 
+      "task_type_id": 1,
+      "task_priority_id": 2, 
+      "task_status_id": 3
+    }
+
+**Response:**
+  
+    {
+      "status": 1,
+      "message": "Tarefa Atualizada com sucesso."
+    }
+
+</br>
+
+
+### **Criar usuário**
+**Endpoint:**  http://localhost:5000/api/criar/usuario</br>
+**Método:** POST</br>
+**Body:**
+
+    {
+      "fullname":"Novo suário",
+      "email":"use@email.com",
+      "pass": "userpass"
+    }
+
+**Response:**
+  
+    {
+      "status": 1,
+      "message": "Usuário cadastrado com sucesso."
+    }
+
+</br>
+
+### **Login de usuário**
+**Endpoint:**  http://localhost:5000/api/login/usuario</br>
+**Método:** POST</br>
+**Body:**
+
+    {
+      "email":"son@gmail.com",
+      "pass":"4321"
+    }
+
+**Response:**
+  
+    {
+      "status": 1,
+      "message": "Bem vindo",
+      "data": [{
+          "user_id": 1,
+          "user_fullname": "Patrick Son",
+          "user_email": "son@gmail.com",
+          "user_pass": "4321"
+        }]
+    }
+
+</br>
+
 
 ## **Telas da aplicação**</br>
 ### Dos recursos não implementados e outras observações

@@ -409,3 +409,7 @@
 ::ffff:127.0.0.1 - - [22/Apr/2023:22:57:12 +0000] "POST /api/criar/usuario HTTP/1.1" 503 30 "-" "insomnia/2023.1.0"
 ::ffff:127.0.0.1 - - [22/Apr/2023:22:57:16 +0000] "POST /api/criar/usuario HTTP/1.1" 500 88 "-" "insomnia/2023.1.0"
 ::ffff:127.0.0.1 - - [22/Apr/2023:22:57:31 +0000] "POST /api/criar/usuario HTTP/1.1" 200 57 "-" "insomnia/2023.1.0"
+::ffff:127.0.0.1 - - [23/Apr/2023:02:27:35 +0000] "GET /api/listar/prioridades HTTP/1.1" 500 47 "-" "insomnia/2023.1.0"
+::ffff:127.0.0.1 - - [23/Apr/2023:02:27:45 +0000] "GET /api/listar/prioridades HTTP/1.1" 500 47 "-" "insomnia/2023.1.0"
+::ffff:127.0.0.1 - - [23/Apr/2023:02:29:35 +0000] "GET /api/listar/prioridades HTTP/1.1" 503 30 "-" "insomnia/2023.1.0"
+::ffff:127.0.0.1 - - [23/Apr/2023:02:29:41 +0000] "GET /api/listar/prioridades HTTP/1.1" 200 215 "-" "insomnia/2023.1.0"

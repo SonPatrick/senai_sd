@@ -3,7 +3,7 @@ function buscarTipos() {
 };
 
 function buscarPrioridades(){
-    return `SELECT priority_id, priority_description FROM priorities order by type_id ASC`;
+    return `SELECT priority_id, priority_description FROM priorities order by priority_id ASC`;
 }
 
 function buscarStatus(){
