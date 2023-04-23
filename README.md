@@ -50,8 +50,8 @@ Por fim, altere esse arquivo com as instruções de como poderemos testar o seu 
 # DOCUMENTAÇÃO DO SISTEMA
 </br>
 
-# senai_sd
-Projeto desenvolvido para o teste prático do processo seletivo do FIESC.
+# **senai_sd**
+Projeto SENAI_SD (SD de *Soluções Digitais*) desenvolvido para o teste prático do processo seletivo do FIESC.
 
 ## Descrição das funcionalidades implementadas
 
@@ -62,7 +62,17 @@ O Projeto foi implementado utilizando as tecnologias/Frameworks:
     Node.js
     Postgres
 
-### Postgres
+### **Flutter**
+A interface do usuário foi construída na linguagem `Dart` utilizando o Framework `Flutter`. Para isso, foram utilizadas as seguintes bibliotecas/pacotes:
+    
+* `http`: Para fazer requisições http
+* `animate_do`: Proporciona um leque de animações fluídas para a UI
+* `provider`: Gerencia de estado da aplicação
+* `circular_clip_route`: Transição de telas 
+
+A aplicação foi construída utilizando o padrão **MVC** (Model-View-Controller) para tornar o código compreensível e a regra de negócio de fácil manutenção.
+
+### **Postgres**
 O banco de dados foi projetado levando em consideração os requisitos descritos no documento. Gerando as seguintes tabelas:
   
 > **Users**: Armazena os usuários do sistema,
@@ -81,10 +91,13 @@ A estrutura ficou como na imagem abaixo:</br></br>
 
 
 ![Banco de dados](images/db.png)
-### Node.js
-A Arquitetura do sistema é monolítica, significando que a interface de usuário enconrta-se no mesmo projeto que a API e as respectivas regras de negócio.</br></br>
+### **Node.js**
 
-A interface foi construída usando a linguagem `Dart` e o `Framework Flutter`, que **renderizou a interface otimizada para Web**  que foi integrada junto ao projeto, formando o **monolito** da aplicação.</br>
+O servidor foi desenvolvido utilizando `Javascript`, que é uma linguagem de programação que, assim como o `Dart`, suporta o paradigma **Orientado a Objeto**.</br></br>
+A Arquitetura do sistema é monolítica, significando que a interface de usuário enconrta-se no mesmo projeto que a API e as respectivas regras de negócio.</br></br>
+O projeto foi construído utilizando o padrão **MVC** complementando o mesmo padrão seguido na construção da regra de negócios da interface de usuário.
+
+A UI foi construída usando a linguagem `Dart` e o `Framework Flutter`, que **renderizou a interface otimizada para Web**  que foi integrada junto ao projeto, formando o **monolito** da aplicação.</br>
 O código da interface do usuário pode ser encontrado e analisado [aqui](https://github.com/SonPatrick/senai_sd_interface).</br></br>
 
 
@@ -110,7 +123,7 @@ A Aplicação Web foi construída usando `Javascript` com o framework `Node.js` 
 
 A aplicação está hospedada na internet, bem [aqui](https://senaisd-production.up.railway.app/#/), porém a exibição ocorre apenas na versão mobile ainda. Como mostrado na imagem abaixo:
 
-![](images/mobile.png)
+![](images/mobile.gif)
 
 Você precisa ter instalado o `Node.js v18.9.0` ou superior e o `Postgres` em sua máquina.</br></br>
 As variáveis de ambiente estão no arquivo `.env` na raíz do projeto e pode ser alterada de acordo com o host, usuário, nome do banco de dados, a senha e a porta.
@@ -130,12 +143,12 @@ O script `.sql` se encontra na pasta `./docs` para importar no banco de dados.
 
 ![Teste de aplicação Insomnia](images/insomnia.png)
 
-## Extras
+## **Docker Container**
  Caso desejar, você pode gerar as imagens do **Docker** para rodar a aplicação dentro dos contêineres em servidores cloud que suportam `Node.js` e `Postgres`.</br></br> Atente que para possibilitar que a aplicação Web se conecte com o banco de dados em contêineres do Docker, é necessário usar o **Docker Compose**.
 
 ## Login
 
-Para entrar no sistema, é criado um usuário padrão no processo de migração das tabelas do banco de dados na execução do aplicativo. Seguem os dados:
+Para entrar no sistema que está no servidor web ([aqui](https://senaisd-production.up.railway.app/#/)), você pode usar um dos usuários previamente criados abaixo:
 
 ### USUÁRIO  `FIESC`
     
@@ -147,16 +160,19 @@ Para entrar no sistema, é criado um usuário padrão no processo de migração 
     Login: senai@fiesc.com
     Senha: senai
 
+Caso você deseje criar um usuário em sua máquina local, você pode usar a `endpoint` de criação de usuário que está informada mais abaixo neste documento.
+
 Com esses dados você pode entrar no sistema para acessar as funcionalidades implementadas na API, que são
 
     [X] Login de usuário (RF1)
     [X] Exibição das tarefas cadastradas (RF2)
-    [X] Criação de tarefas (RF3)
 
+## **API da aplicação**
 Você pode testar nos seguintes endpoints:
 ### Listar Tarefas
 **Endpoint:**  http://localhost:5000/api/listar/tarefas/:page</br>
-**Método:** GET
+**Parametro:**  [:page] número da página para exibir os resultados</br>
+**Método:** GET</br>
 **Response:**
   
     {
@@ -200,40 +216,7 @@ Você pode testar nos seguintes endpoints:
         }]
     }
 
-### Listar Tipos de Tarefas
-**Endpoint:**  http://localhost:5000/api/listar/tipos</br>
-**Método:** POST
-**Body**: 
-
-    {
-      "task_title": "Nova Tarefa", 
-      "task_description":"Tarefa nova na parada testar o cadastro de tabelas", 
-      "task_type_id":1,
-      "task_priority_id": 2, 
-      "task_status_id":3
-    }
-**Response:**
-  
-    {
-      "data": [
-        {
-          "type_id": 1,
-          "type_description": "Incidente"
-        },
-        {
-          "type_id": 2,
-          "type_description": "Solicitação de Serviço"
-        },
-        {
-          "type_id": 3,
-          "type_description": "Melhorias"
-        },
-        {
-          "type_id": 4,
-          "type_description": "Projetos"
-        }]
-    }
-## Telas da aplicação</br>
+## **Telas da aplicação**</br>
 ### Dos recursos não implementados e outras observações
 Alguns dos recursos e requisitos solicitados não foram implementados dado o breve tempo para a entrega dos mesmos. Entretanto buscou-se entregar a aplicação com os requisitos funcionais e com a interface de usuário agradável.</br></br>
 
@@ -258,28 +241,28 @@ Os requisitos não implementados na interface ou que estão incompletos foram:
 Dado o prazo de entrega do sistema, não foram realizados testes com usuários, entretanto as metodologias `TAM` e `UTAUT`  seriam utilizadas para verificar a aceitação, usabilidade e facilidade de uso do sistema na visão do usuário, além de um relatório refinado contendo os feedbacks dos mesmos.
 
 ---
-## Telas
-### Login (RF1)
+## **Telas**
+### Login (RF1)</br>
 
 
-![](images/login.png)
+![](images/login.png)</br></br>
 
 ### Lista de tarefas (RF2)
 
 
-![](images/tarefas.png)
+![](images/tarefas.png)</br></br>
 
 ### Adicionar de tarefas (RF3) [INCOMPLETA]
 
-![](images/newtask.png)
+![](images/newtask.png)</br></br>
 
 ### Adicionar providência (RF4) [INCOMPLETA]
 
 
-![](images/newtask.png)
+![](images/coments.png)</br></br>
 
 
 ## Agradecimentos
-Agradeço primeiramente a Deus pela sabedoria, pelo ânimo e pela graça de chegar até aqui, agradeço à minha namorada e minha sogra por garantir o meu alimento e me encorajar a continuar apesar das dificuldades enquanto desenvolvia esse sistema, agradeço aos meus amigos pelo ânimo e à equipe FIESC por ter me permitido chegar nesta etapa.</br></br>
-O sentimento é de **gratidão** pelo aprendizado.</br>
+Agradeço primeiramente a Deus pela sabedoria, pelo ânimo e pela graça de chegar até aqui, agradeço à minha namorada e minha sogra por garantir o meu alimento nesse dois dias e me encorajar a continuar apesar das dificuldades que encontrei enquanto desenvolvia o sistema. Agradeço aos meus amigos pelo ânimo e à equipe FIESC por ter me permitido chegar nesta etapa.</br></br>
+O sentimento é de **gratidão** pelo aprendizado desse dois dias intensos de programação.</br>
 Um grande abraço a todos.
