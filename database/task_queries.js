@@ -26,7 +26,8 @@ function listarTarefasPaginadas(page = 0){
 
 function cadastrarTarefa(id, model){
     return `INSERT INTO tasks (task_user_id, task_title, task_description, task_type_id, task_priority_id, task_status_id)
-    VALUES (${id}, '${model.task_title}', '${model.task_description}', ${model.task_type_id}, ${model.task_priority_id}, ${model.task_status_id});`
+    VALUES (${id}, '${model.task_title}', '${model.task_description}', ${model.task_type_id}, ${model.task_priority_id}, ${model.task_status_id})
+    RETURNING task_id;`
 };
 
 function atualizarTarefa(id_task, model){

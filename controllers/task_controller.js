@@ -23,7 +23,7 @@ async function cadastrarTarefa(id, model) {
 
   if (data) {
     status = 1;
-    message = `Tarefa cadastrada com sucesso.`;
+    message = `Tarefa com o id ${JSON.stringify(data[0].task_id)} foi inserida com sucesso.`;
   }
   return { status, message };
 }
