@@ -12,7 +12,7 @@ async function listarTarefasPaginadas(page) {
 
   if (data) {
     status = 1;
-    pages = total/10;
+    pages = total % 10;
     message = `resultados encontrados`;
   }
   return { status, pages, message, data };
