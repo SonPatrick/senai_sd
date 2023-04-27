@@ -470,3 +470,4 @@
 ::ffff:127.0.0.1 - - [27/Apr/2023:14:17:44 +0000] "GET /api/listar/tarefas/0 HTTP/1.1" 200 3057 "-" "insomnia/2023.2.0"
 ::ffff:127.0.0.1 - - [27/Apr/2023:14:18:04 +0000] "GET /api/listar/tarefas/0 HTTP/1.1" 200 3047 "-" "insomnia/2023.2.0"
 ::ffff:127.0.0.1 - - [27/Apr/2023:14:19:28 +0000] "GET /api/listar/tarefas/0 HTTP/1.1" 200 3045 "-" "insomnia/2023.2.0"
+::ffff:127.0.0.1 - - [27/Apr/2023:14:32:54 +0000] "GET /api/listar/tarefas/0 HTTP/1.1" 200 3045 "-" "insomnia/2023.2.0"
