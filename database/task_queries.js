@@ -19,7 +19,7 @@ function listarTarefasPaginadas(page = 0){
         inner join priorities p ON p.priority_id = t.task_id
         inner join status s ON s.status_id = t.task_status_id
         inner join types tp ON tp.type_id = t.task_type_id
-    WHERE t.task_status_id !=2
+
     ORDER BY t.created_at ASC 
     LIMIT 10 OFFSET ${offset}`
 };
