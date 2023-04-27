@@ -4,15 +4,18 @@ const helper = require("../utils/helpers");
 
 async function listarTarefasPaginadas(page) {
   const result = await database.consultar(queries.listarTarefasPaginadas(page));
-  const total = await database.consultar(queries.listarTotalTarefas());
+  const total = await database.consultar(queries.listarTotalTarefas);
+  console.log(total);
+
   let status = 0;
-  let pages = 0
+  let pages = 0;
   let message = "Nenhuma tarefa encontrada.";
   const data = helper.emptyOrRows(result);
+  const totalData = helper.emptyOrRows(total);
 
   if (data) {
     status = 1;
-    pages = total % 10;
+    pages = parseInt((totalData.shift()).total);
     message = `resultados encontrados`;
   }
   return { status, pages, message, data };

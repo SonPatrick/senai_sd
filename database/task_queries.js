@@ -11,13 +11,11 @@ function buscarTarefaPorId(id) {
     LIMIT 10 OFFSET ${offset}`;
 }
 
-function listarTotalTarefas() {
-  return "(SELECT COUNT(*) FROM tasks) as total";
-}
+const listarTotalTarefas = `SELECT ABS((SELECT COUNT(*) FROM tasks) / 10) + 1  as total`;
 
 function listarTarefasPaginadas(page = 0) {
   let offset = page > 1 ? (page - 1) * 10 : 0;
-  return `SELECT  t.task_id, t.task_user_id, u.user_fullname, t.task_title, t.task_description, p.priority_description, tp.type_description, s.status_description, t.created_at
+  return `SELECT t.task_id, t.task_user_id, u.user_fullname, t.task_title, t.task_description, p.priority_description, tp.type_description, s.status_description, t.created_at
     FROM tasks t
         inner join users u ON u.user_id = t.task_user_id
         inner join priorities p ON p.priority_id = t.task_priority_id
