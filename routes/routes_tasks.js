@@ -29,6 +29,26 @@ router
       next(err);
     }
   })
+  .post("/comentar/tarefa/:id", async function (req, res, next) {
+    try {
+      res.status(200);
+      res.send(await task_ctrl.comentarTarefa(req.params.id, req.body));
+    } catch (err) {
+      res.status(404);
+      console.error(`Erro ao comentar tarefas.`, err.message);
+      next(err);
+    }
+  })
+  .get("/listar/comentario/:id", async function (req, res, next) {
+    try {
+      res.status(200);
+      res.send(await task_ctrl.listarComentariosTarefas(req.params.id));
+    } catch (err) {
+      res.status(404);
+      console.error(`Erro ao criar a tarefa.`, err.message);
+      next(err);
+    }
+  })
   .put("/atualizar/tarefa/:id_task", async function (req, res, next) {
     try {
       res.status(200);

@@ -45,4 +45,31 @@ async function atualizarTarefa(id_task, model) {
   }
   return { status, message };
 }
-module.exports = { listarTarefasPaginadas, cadastrarTarefa, atualizarTarefa };
+
+async function comentarTarefa(id_task, model) {
+  const result = await database.consultar(queries.comentarTarefa(id_task, model));
+  let status = 0;
+  let message = "Falha ao adicionar comentário na tarefa.";
+ 
+  if (result) {
+    status = 1;
+    message = `Comentado com sucesso.`;
+  }
+  return { status, message };
+}
+
+async function listarComentariosTarefas(id_task) {
+  const result = await database.consultar(queries.listarComentariosTarefa(id_task));
+ 
+  let status = 0;
+  let message = "Nenhuma comentário no momento.";
+  const data = helper.emptyOrRows(result);
+
+  if (data.length > 0) {
+    status = 1;
+    message = `Comentários carregados.`;
+  }
+  return { status, message, data };
+}
+
+module.exports = { listarTarefasPaginadas, cadastrarTarefa, atualizarTarefa, comentarTarefa, listarComentariosTarefas };

@@ -43,10 +43,21 @@ function atualizarTarefa(id_task, model) {
             WHERE task_id = ${id_task};`;
 }
 
+function comentarTarefa(id_task, model){
+  return `INSERT INTO tasks_comments (tc_task_id, tc_user_id, tc_comment)
+          VALUES (${id_task}, ${model.tc_user_id}, '${model.tc_comment}');`;
+}
+
+function listarComentariosTarefa(id_task){
+  return `SELECT * FROM tasks_comments WHERE tc_task_id = ${id_task} ORDER BY tc_id DESC;`;
+}
+
 module.exports = {
   buscarTarefaPorId,
   listarTarefasPaginadas,
   cadastrarTarefa,
   atualizarTarefa,
+  comentarTarefa,
+  listarComentariosTarefa,
   listarTotalTarefas,
 };
